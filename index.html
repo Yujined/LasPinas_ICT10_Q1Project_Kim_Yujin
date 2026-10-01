@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SKU Generator</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.8.1/core.css">
+    <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #222;
+            background-image: url("https://static.wikia.nocookie.net/jujutsu-shenanigans/images/d/dd/Towers.png/revision/latest/scale-to-width-down/1200?cb=20250602212122");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        header {
+            background-color: #d10ffd;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: "Press Start 2P", monospace;
+            font-size: 28px;
+        }
+
+        header p {
+            font-family: "Press Start 2P", monospace;
+            font-size: 10px;
+        }
+
+
+        nav {
+            background-color: #e364ff;
+            text-align: center;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #7b0a8f;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.65);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            font-family: "Press Start 2P", monospace;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.20);
+        }
+
+        #sku_output {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(233, 245, 255, 0.80);
+            border-radius: 8px;
+            text-align: center;
+            font-family: "Press Start 2P", monospace;
+            font-size: 16px;
+        }
+
+        .product-icon {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .product-icon img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        .product-icon img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+        
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>UNLICENSED STUDIOS</h1>
+        <p>Items to Jujutsu, Shenanigan, and more...!</p>
+    </header>
+
+    <nav>
+        <a href="index.html">SKU Generator</a>
+        <a href="receipt.html">Receipt Generator</a>
+    </nav>
+
+    <div class="container">
+
+        <div class="card">
+
+            <div class="product-icon">
+                <img src="https://tr.rbxcdn.com/180DAY-057965466b28250617c5a6470755c135/420/420/ShoulderAccessory/Webp/noFilter" alt="Product">
+            </div>
+
+            <h2>Please Choose your selected Items...</h2>
+
+            <label for="category">Product Category</label>
+
+            <select id="category">
+                <option value="emotes">Emotes</option>
+                <option value="flashes">Victory Flashes</option>
+                <option value="items">Items</option>
+                <option value="merch">Merch and Accessories</option>
+                <option value="delivery">Soda Delivery</option>
+            </select>
+
+            <label for="product_name">Product Name</label>
+
+            <input
+                type="text"
+                id="product_name"
+                placeholder="Enter product name"
+            >
+
+            <label for="quantity">Stock Quantity</label>
+
+            <input
+                type="number"
+                id="quantity"
+                placeholder="Enter stock quantity"
+            >
+
+            <button py-click="SKU_generator">
+                Generate SKU
+            </button>
+
+            <div id="sku_output"></div>
+
+        </div>
+
+    </div>
+
+    <py-script src="main.py"></py-script>
+
+</body>
+</html>
